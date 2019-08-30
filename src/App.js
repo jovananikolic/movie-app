@@ -6,6 +6,16 @@ import {MovieCards} from './components/MovieCards/MovieCards';
 
 class App extends Component {
     
+//    state = {
+//        searchList: false
+//    }
+//    
+//    onSearchList = () => {
+//        this.setState({
+//            searchList: true
+//        });
+//    }
+    
     render(){
         return (
             <Fragment>

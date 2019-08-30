@@ -2,10 +2,14 @@ import React from 'react';
 import './Header.css';
 import {Search} from '../Search/Search'
 
-const Header = () => (
+const Header = (props) => (
 	<header>
-		<h1>Movie Watchlist</h1>
-		<Search />
+            <div className="container">
+                <div className="header-wrapper">
+                    <h1>Movie Watchlist</h1>
+                    <Search />
+                </div>
+            </div>
 	</header>
 );
 

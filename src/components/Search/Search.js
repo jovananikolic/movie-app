@@ -9,7 +9,8 @@ class Search extends Component {
 
     state = {
         movies: [],
-        searchValue: ''
+        searchValue: '',
+        movieList: []
     }
     
     getMovies = () => {
@@ -55,30 +56,35 @@ class Search extends Component {
         })
         .then(data => {
             data.watchType = "toWatch";
-            
+    
+            // TREBA SETOVATI STATE I UPOREDITI PODATKE IZ STATE-A SA FILMOM KOJI
+            // HOCEMO DA DODAMO U FIREBASE, DA SE NE BI DOGODILO DUPLIRANJE FILMOVA
+    
             fetch(`https://movie-app-373ab.firebaseio.com/movie.json`, {
                 method: "POST",
                 body: JSON.stringify(data)
             });
+            
         });
     }
     
+    // NE TREBA DA POSTOJI UOPSTE UL LISTA NA STRANICI AKO NIJE UKUCANO NI JEDNO SLOVO
 
     render(){
         return(
-            <Fragment>
+            <div className="search-wrapper">
                 <input type="text" 
                        value={this.state.searchValue} 
                        onChange={this.getSearchValue} />
-                <ul className="search-wrapper">
+                <ul className="search-list">
                     {this.state.movies.map((movie, index) =>
                         <li key={index} id={movie.imdbID} className="list-item" onClick={this.watchList}>
-                            <p>{movie.Title}</p>
+                            <p>{movie.Title} ({movie.Year})</p>
                             <span>+</span>
                         </li>
                     )}
                 </ul>
-            </Fragment>
+            </div>
         );
     }
 };

@@ -25,7 +25,7 @@ class MovieCards extends Component {
                movieDb: movies
             });
             
-                    console.log(this.state.movieDb);
+            console.log(this.state.movieDb);
         });
     }
     
