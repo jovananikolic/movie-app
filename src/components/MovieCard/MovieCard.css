@@ -1,0 +1,18 @@
+.movie-card{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.movie-card .d-flex{
+    display: flex;
+    align-items: center;
+}
+
+.movie-card .d-flex h1:first-of-type{
+    margin-right: 10px;
+}
+
+.movie-card span{
+    border: 1px solid red;
+}

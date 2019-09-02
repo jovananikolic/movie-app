@@ -7,7 +7,7 @@ const Header = (props) => (
             <div className="container">
                 <div className="header-wrapper">
                     <h1>Movie Watchlist</h1>
-                    <Search />
+                    <Search moviesData={props.moviesData} renderState={props.getMovies} />
                 </div>
             </div>
 	</header>
