@@ -112,6 +112,7 @@ class Search extends Component {
                        value={this.state.searchValue} 
                        onChange={this.getSearchValue}
                        id="search-input" />
+                { this.state.searchValue.length > 2 ? 
                 <ul className="search-list">
                     {this.state.movies.map((movie, index) =>
                         <li key={index} id={movie.imdbID} className="list-item" onClick={this.watchList}>
@@ -119,7 +120,7 @@ class Search extends Component {
                             <span>+</span>
                         </li>
                     )}
-                </ul>
+                </ul> : null }
             </div>
         );
     }

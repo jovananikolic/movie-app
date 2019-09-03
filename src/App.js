@@ -43,27 +43,36 @@ class App extends Component {
         });
     }
     
-    onListUpdate = (e) => {
-        const updateMovie = e.target.closest(".movie-card").id;
-        
-        fetch(`https://movie-app-373ab.firebaseio.com/movie/${updateMovie}.json`)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            data.watchType = "watched";
-            
-            fetch(`https://movie-app-373ab.firebaseio.com/movie.json`, {
-                method: "POST",
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                this.getMovieData();
-            });
-        });
-        
-        
-    }
+//    onListUpdate = (e) => {
+//        const updateMovie = e.target.closest(".movie-card").id;
+//        
+//        fetch(`https://movie-app-373ab.firebaseio.com/movie/${updateMovie}.json`)
+//        .then(response => {
+//            return response.json();
+//        })
+//        .then(data => {
+//            data.watchType = "watched";
+//    
+//            this.getMovieData();
+//            
+//            fetch(`https://movie-app-373ab.firebaseio.com/movie.json`, {
+//                method: "POST",
+//                body: JSON.stringify(data)
+//            })
+//            .then(response => {
+//                this.getMovieData(); 
+//            })
+//            .then(data => {
+//                fetch(`https://movie-app-373ab.firebaseio.com/movie/${updateMovie}.json`, {
+//                    method: "DELETE",
+//                    body: JSON.stringify(data)
+//                })
+//                .then(this.getMovieData());
+//            });
+//        });
+//        
+//        
+//    }
     
     componentDidMount() {
         this.getMovieData();
@@ -73,15 +82,17 @@ class App extends Component {
         return (
             <Fragment>
               <Header getMovies={this.getMovieData} moviesData={this.state.movieDb} />
-              <MovieCards type="toWatch"
+              {this.state.movieDb && this.state.movieDb.length ? 
+              <MovieCards type="toWatch" 
                           passData={this.state.movieDb}
                           cardDelete={this.onCardDelete}
                           onListUpdate={this.onListUpdate}
-                          label="Watch List" />
+                          label="Watch List" /> : null}
+              {this.state.movieDb && this.state.movieDb.length ?
               <MovieCards type="watched"
                           passData={this.state.movieDb}
                           cardDelete={this.onCardDelete}
-                          label="Watched" />
+                          label="Watched" /> : null }
             </Fragment>
         );
     }
