@@ -1,6 +1,7 @@
 header{
-    background: linear-gradient(to right, #53657f, #435e87, #35558e, #2a4c95, #244299);
+    background: #759aab;
     margin-bottom: 30px;
+    height: 20vh;
 }
 
 .container {
@@ -9,16 +10,19 @@ header{
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    height: 20vh;
 }
 
 header .header-wrapper{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
+    height: 20vh;
 }
 
 header h1{
-    color: #fff;
+    color: #3c474b;
 }
 
 @media (min-width: 576px) {

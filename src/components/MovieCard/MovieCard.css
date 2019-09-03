@@ -1,18 +1,56 @@
 .movie-card{
-    border: 1px solid black;
+    border-radius: 0px 25px 0px;
     margin-bottom: 20px;
     padding: 10px;
+    background: #eee;
+    box-shadow: 0 0 5px 0 #435e87;
+    width: 100%;
 }
-
+.movie-card .movie-rating:hover{
+	background-color: #a5a1a1;
+}
+.ml-auto{
+	margin-left: auto;
+}
+.movie-card .movie-rating{
+	box-shadow: 0 0 5px 0 #435e87;
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 8px;
+	background-color: #d0cfcf;
+	width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 53px;
+}
 .movie-card .d-flex{
     display: flex;
     align-items: center;
 }
 
 .movie-card .d-flex h1:first-of-type{
-    margin-right: 10px;
+    margin: 0px 50px;
+    cursor: pointer;
 }
 
-.movie-card span{
-    border: 1px solid red;
+.movie-details span{
+	font-size: 30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.movie-details span.trash{
+	color: red;
+}
+.movie-details span.eye{
+	color: #000;
+}
+.movie-genre span{
+	font-style: italic;
+	font-weight: bold;
+	color: gray;
+	
+}
+.movie-genre span:hover{
+	color: #3a3232;
+	cursor: pointer;
 }

@@ -1,12 +1,17 @@
 .search-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
 }
 
 .search-wrapper input{
     width: 300px;
+    height: 20px;
+    padding: 5px;
+    outline: none;
+    background: #fff;
+    color: #435e87;
+    /*border-color: steelblue;*/
+    font-size: 13px;
+    border: none;
 }
 
 .search-wrapper .search-list{
@@ -21,7 +26,7 @@
     list-style: none;
     padding-left: 0;
     background: #fff;
-    border-radius: 0 0 10px 10px;
+    margin-left: -1px;
 }
 
 .search-wrapper .search-list .list-item{
@@ -33,9 +38,10 @@
 
 .search-wrapper .search-list .list-item:hover{
     cursor: pointer;
+    background-color: #eee;
 }
 
 .search-wrapper .search-list .list-item p{
     margin: 0;
-    color: #2b4d94;
+    color: #435e87;
 }

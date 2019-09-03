@@ -9,11 +9,10 @@ const MovieCards = (props) => {
         return props.passData.map((item, i) => {
             if (item.watchType === props.type) {
                 return(
-                    <MovieCard movie={item} key={i} onDelete={props.cardDelete} onListUpdate={props.onListUpdate} />
+                    <MovieCard movie={item} key={i} onDelete={props.cardDelete} onListUpdate={props.onListUpdate} onMoveUp={props.onMoveUp} />
                 );
             }
         });
-        
     };
     
     return(

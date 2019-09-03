@@ -6,22 +6,26 @@ const MovieCard = (props) => {
         const genreArr = genre.split(" ");
         
         const genreFunc = () => {
-            return genreArr.map(item => {
+            return genreArr.map((item, i) => {
                 return (
-                    <span>{item} </span>
+                    <span key={i}>{item} </span>
                 );
             });
         };
         
+        
         return(
             <div className="movie-card" id={props.movie.id}>
-                <div className="d-flex">
-                    <h1>{props.movie.imdbRating}</h1>
-                    <h1>{props.movie.Title}</h1>
-                    <span onClick={props.onDelete}>DELETE</span>
-                    <span onClick={props.onListUpdate}>OKO</span>
+                <div className="d-flex movie-details">
+                    <h1 className="movie-rating">{props.movie.imdbRating}</h1>
+                    <h1 className="movie-title">{props.movie.Title}</h1>
+                    <div className="d-flex ml-auto">
+                        
+                        <span className="fa fa-eye eye" onClick={props.onListUpdate}></span>
+                        <span className="fa fa-trash-o trash" onClick={props.onDelete}></span>
+                    </div>
                 </div>
-                <div>{genreFunc()}</div>
+                <div className="movie-genre">{genreFunc()}</div>
             </div>
         );
 };

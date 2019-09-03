@@ -71,9 +71,17 @@ class Search extends Component {
                     body: JSON.stringify(data)
                 })
                 .then(response => {
-                    return response.json();
-                })
-                .then(this.props.renderState());
+                    response.json().then(r => {
+                        data.id = r.name;
+                        moviesArr.push(data);
+                        this.setState({
+                            movieDb: moviesArr
+                        });
+
+                        this.props.changeState(moviesArr);
+                    });
+                });
+                
             }
     
             
@@ -90,15 +98,6 @@ class Search extends Component {
         this.setState({
           searchValue: ""
         });
-        
-//        const listMovies = document.querySelector('.search-list');
-//        
-//        if (inputValue.value === "") {
-//            
-//            listMovies.style.display = "none";
-//        } else {
-//            listMovies.style.display = "block";
-//        }
     }
     
     
